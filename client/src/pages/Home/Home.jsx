@@ -13,6 +13,7 @@ export const Home = () => {
           <a
             href="https://github.com/Shiv-9031/payinstacard/tree/master"
             target="_blank"
+            rel="noreferrer"
           >
             click here
           </a>{" "}
