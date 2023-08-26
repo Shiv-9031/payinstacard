@@ -21,7 +21,7 @@ export const Register = () => {
     try {
       if (payload.password === payload.confirmpassword) {
         var response = await axios.post(
-          "http://localhost:8080/api/v1/user/register", //http://localhost:8080
+          "https://payinstacard.onrender.com/api/v1/user/register", //http://localhost:8080
           { ...payload, confirmpassword: undefined }
         );
         console.log(response.data);
