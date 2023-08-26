@@ -20,6 +20,7 @@
 .header-logo > a {
   cursor: pointer;
   text-decoration: none;
+  color: white;
 }
 .search-bar {
   width: 30%;
@@ -40,7 +41,7 @@
 }
 .header-item-list > ul > li > a {
   text-decoration: none;
-
+  color: white;
   font-size: 22px;
   font-weight: 400;
 }
