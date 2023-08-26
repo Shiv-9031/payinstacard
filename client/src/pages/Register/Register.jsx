@@ -4,6 +4,8 @@ import image from "../../images/web-developer.png";
 import { useNavigate } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Register = () => {
   const [payload, setPayload] = React.useState({
@@ -21,21 +23,20 @@ export const Register = () => {
     try {
       if (payload.password === payload.confirmpassword) {
         var response = await axios.post(
-          "https://payinstacard.onrender.com/api/v1/user/register", //http://localhost:8080
+          "http://localhost:8080/api/v1/user/register", ////https://payinstacard.onrender.com
           { ...payload, confirmpassword: undefined }
         );
-        console.log(response.data);
       } else {
-        throw new Error("password is not same");
+        toast("password is not same");
       }
 
       //navigate
       if (response.data.success) {
+        toast(response.data.message);
         navigate("/login");
       }
     } catch (e) {
-      console.log(e);
-      alert(e);
+      toast(e);
     }
   };
 
@@ -58,7 +59,7 @@ export const Register = () => {
                     setPayload({ ...payload, name: e.target.value })
                   }
                   required
-                ></input>
+                />
               </div>
               <div className="input-box">
                 <span className="details">UserName</span>
@@ -69,7 +70,7 @@ export const Register = () => {
                   onChange={(e) =>
                     setPayload({ ...payload, userName: e.target.value })
                   }
-                ></input>
+                />
               </div>
               <div className="input-box">
                 <span className="details">Email</span>
@@ -80,7 +81,7 @@ export const Register = () => {
                   onChange={(e) =>
                     setPayload({ ...payload, email: e.target.value })
                   }
-                ></input>
+                />
               </div>
               <div className="input-box">
                 <span className="details">phone number</span>
@@ -91,7 +92,7 @@ export const Register = () => {
                   onChange={(e) =>
                     setPayload({ ...payload, phone: e.target.value })
                   }
-                ></input>
+                />
               </div>
               <div className="input-box">
                 <span className="details">Password</span>
@@ -102,7 +103,7 @@ export const Register = () => {
                   onChange={(e) =>
                     setPayload({ ...payload, password: e.target.value })
                   }
-                ></input>
+                />
               </div>
               <div className="input-box">
                 <span className="details">Confirmed Password</span>
@@ -113,7 +114,7 @@ export const Register = () => {
                   onChange={(e) =>
                     setPayload({ ...payload, confirmpassword: e.target.value })
                   }
-                ></input>
+                />
               </div>
             </div>
             <div className="gender-details">

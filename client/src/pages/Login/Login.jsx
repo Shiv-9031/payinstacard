@@ -4,7 +4,9 @@ import image from "../../images/login.png";
 import { useNavigate, Link } from "react-router-dom";
 import "../Register/Register.css";
 import axios from "axios";
-import Spinner from "../../component/Spinner.jsx";
+
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const Login = () => {
   const [payload, setPayload] = React.useState({
@@ -12,26 +14,26 @@ export const Login = () => {
     password: " ",
   });
 
-  const [spinner, showSpinner] = React.useState(false);
   const navigate = useNavigate();
 
   const sendInput = async () => {
     try {
-      var response = await axios.post(
-        "https://payinstacard.onrender.com/api/v1/user/login", //http://localhost:8080
+      let response = await axios.post(
+        "http://localhost:8080/api/v1/user/login", // //https://payinstacard.onrender.com
         payload
       );
 
-      showSpinner(true);
       //navigate
       if (response.data.success) {
-        showSpinner(false);
         localStorage.setItem("user", JSON.stringify(response.data));
+        toast.success("Welcom " + response.data.user.name);
+
         navigate("/");
+      } else {
+        toast.error(response.data.message);
       }
     } catch (e) {
-      console.log(e);
-      alert("enter proper value");
+      toast(e);
     }
   };
   useEffect(() => {
@@ -42,7 +44,6 @@ export const Login = () => {
 
   return (
     <Layout>
-      {spinner ? <Spinner /> : null}
       <div className="register-main-container">
         <div className="left-container">
           <img src={image} alt="developer" />
