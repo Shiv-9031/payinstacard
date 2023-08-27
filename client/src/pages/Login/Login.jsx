@@ -19,7 +19,7 @@ export const Login = () => {
   const sendInput = async () => {
     try {
       let response = await axios.post(
-        "http://localhost:8080/api/v1/user/login", // //https://payinstacard.onrender.com
+        "https://payinstacard.onrender.com/api/v1/user/login", //http://localhost:8080 //
         payload
       );
 

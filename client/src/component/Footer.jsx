@@ -6,13 +6,12 @@ export const Footer = () => {
       className="footer"
       style={{
         height: "10vh",
-        border: "2px solid black",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        border: "1px solid white",
       }}
     >
-      <h3>All right reserverd &copy ;</h3>
+      <h3 style={{ color: "white", marginBottom: "5px" }}>
+        All right reserverd &copy ;
+      </h3>
     </div>
   );
 };

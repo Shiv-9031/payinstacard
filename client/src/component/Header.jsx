@@ -22,11 +22,9 @@ export const Header = ({ children }) => {
     <div className="page-content">
       <div className="header-main">
         <div className="header-logo">
-          <Link to="/">Payinstacard Private Limited</Link>
+          <Link to="/">SciAstra Education Private Limited</Link>
         </div>
-        <div className="search-bar">
-          <h2>Search bar</h2>
-        </div>
+        <div className="search-bar"></div>
         <div className="header-item-list">
           <ul>
             <li className="header-item">
@@ -46,8 +44,18 @@ export const Header = ({ children }) => {
                 <li className="header-item">
                   <Link to="/">{loguser.user.name}</Link>
                 </li>
+
                 <li className="header-item">
-                  <button onClick={logout}>logout</button>
+                  <a
+                    href="https://github.com/Shiv-9031/payinstacard/tree/master"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Project Link
+                  </a>
+                </li>
+                <li className="header-item">
+                  <button onClick={logout}>Logout</button>
                 </li>
               </>
             )}

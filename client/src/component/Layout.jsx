@@ -9,11 +9,9 @@ export const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className="container" style={{ height: "80vh", padding: "0 15px" }}>
-        {children}
-      </div>
-      {/* <ToastContainer /> */}
-      <Footer />
+
+      {children}
+      {/* <Footer /> */}
     </>
   );
 };
